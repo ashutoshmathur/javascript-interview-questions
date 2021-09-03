@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Accordion in Vanilla JS</title>
+  <style>
+    body {
+      background-color: #f1f1f1
+    }
+    .accordion-container {
+      padding: 10px
+    }
+    .accordion-header {
+      display: flex;
+      padding: 5px;
+      background-color: #fff;
+      box-shadow: 2px 2px #f1f1f1;
+      cursor: pointer;
+    }
+    .accordion-header-icon {
+      border-radius: 50%;
+      background: blue;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      color: #fff;
+      margin-right: 10px;
+    }
+    
+    .accordion-body {
+      margin-top: 10px;
+      padding: 0 5px;
+      background-color: #fff;
+      box-shadow: 2px 2px #f1f1f1;
+      max-height: 1000px;
+      opacity: 1;
+      transition: max-height 0.25s, opacity 0.25s, overflow 0.25s;
+    }
+    
+    .accordion-body.hidden {
+      max-height: 0px;
+      opacity: 0.5;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="accordion-container">
+    <div class="accordion-header" type="button">
+      <div class="accordion-header-icon">
+        -
+      </div>
+      <div class="accordion-header-title">
+        Title
+      </div>
+    </div>
+    <div class="accordion-body">
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+    </div>
+  </div>
+
+  <div class="accordion-container">
+    <div class="accordion-header" type="button">
+      <div class="accordion-header-icon">
+        -
+      </div>
+      <div class="accordion-header-title">
+        Title
+      </div>
+    </div>
+    <div class="accordion-body">
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+      I am an Accordion.</br>
+    </div>
+  </div>
+  <script>
+    var headers = document.getElementsByClassName("accordion-header")
+    
+    Array.prototype.forEach.call(headers, function(element) {
+      element.addEventListener('click', function(e) {
+          e.target.nextElementSibling.classList.toggle('hidden')
+          var headerIcon = e.target.querySelector('.accordion-header-icon')
+           if(headerIcon.innerText === "+") {
+             headerIcon.textContent = "-"
+           } else if(headerIcon.innerText === "-") {
+             headerIcon.textContent = "+"
+           }
+       });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
